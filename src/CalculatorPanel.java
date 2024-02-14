@@ -157,4 +157,5 @@ public class CalculatorPanel extends JPanel {
         // Open the HistoryPage
         new Calculator_History(historyList);
     }
+    
 }

@@ -8,29 +8,43 @@ public class HomePage extends JFrame {
     private JPanel currentPanel;
     private CalculatorPanel calculatorPanel;
     private BMICalculatorPanel bmiCalculatorPanel;
+    private QuadraticSolverPanel quadraticSolverPanel;
     private JPanel homePanel;
 
     public HomePage() {
-        setTitle("run_java_project()");
+        setTitle("basic_tools_applications");
         setSize(1000, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException
                 | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
+
         JButton calculatorButton = new JButton("Calculator");
         JButton bmiCalculatorButton = new JButton("BMI Calculator");
+        JButton quadraticSolverButton = new JButton("Quadratic Solver");
+        JButton newButton = new JButton("New Button");
+
         calculatorButton.setBackground(new Color(32, 32, 32));
         calculatorButton.setForeground(Color.WHITE);
         calculatorButton.setFocusPainted(false);
         calculatorButton.setPreferredSize(new Dimension(150, 50));
+
         bmiCalculatorButton.setBackground(new Color(32, 32, 32));
         bmiCalculatorButton.setForeground(Color.WHITE);
         bmiCalculatorButton.setFocusPainted(false);
         bmiCalculatorButton.setPreferredSize(new Dimension(150, 50));
-        homePanel = new JPanel(new GridLayout(4, 1));
+
+        quadraticSolverButton.setBackground(new Color(32, 32, 32));
+        quadraticSolverButton.setForeground(Color.WHITE);
+        quadraticSolverButton.setFocusPainted(false);
+        quadraticSolverButton.setPreferredSize(new Dimension(150, 50));
+
+
+        homePanel = new JPanel(new GridLayout(5, 1));
         homePanel.setBackground(new Color(32, 32, 32));
         homePanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
@@ -38,16 +52,17 @@ public class HomePage extends JFrame {
         welcomeLabel.setForeground(Color.WHITE);
         welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         welcomeLabel.setFont(new Font("Arial", Font.BOLD, 40));
-        homePanel.add(welcomeLabel);
 
         JLabel subheadingLabel = new JLabel("OUR SWEET LITTLE JAVA PROJECT....");
         subheadingLabel.setForeground(Color.WHITE);
         subheadingLabel.setHorizontalAlignment(SwingConstants.CENTER);
         subheadingLabel.setFont(new Font("Arial", Font.PLAIN, 24));
-        homePanel.add(subheadingLabel);
 
+        homePanel.add(welcomeLabel);
+        homePanel.add(subheadingLabel);
         homePanel.add(calculatorButton);
         homePanel.add(bmiCalculatorButton);
+        homePanel.add(quadraticSolverButton);
 
         add(homePanel, BorderLayout.CENTER);
 
@@ -65,8 +80,22 @@ public class HomePage extends JFrame {
             }
         });
 
+        quadraticSolverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switchToQuadraticSolver();
+            }
+        });
+
+        newButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+
         calculatorPanel = new CalculatorPanel(this);
         bmiCalculatorPanel = new BMICalculatorPanel(this);
+        quadraticSolverPanel = new QuadraticSolverPanel(this);
 
         setVisible(true);
     }
@@ -91,6 +120,13 @@ public class HomePage extends JFrame {
         getContentPane().removeAll();
         getContentPane().add(homePanel, BorderLayout.CENTER);
         currentPanel = homePanel;
+        revalidate();
+        repaint();
+    }
+    public void switchToQuadraticSolver() {
+        getContentPane().removeAll();
+        getContentPane().add(quadraticSolverPanel, BorderLayout.CENTER);
+        currentPanel = quadraticSolverPanel;
         revalidate();
         repaint();
     }
