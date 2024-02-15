@@ -10,7 +10,6 @@ public class HomePage extends JFrame {
     private BMICalculatorPanel bmiCalculatorPanel;
     private QuadraticSolverPanel quadraticSolverPanel;
     private JPanel homePanel;
-
     public HomePage() {
         setTitle("basic_tools_applications");
         setSize(1000, 800);

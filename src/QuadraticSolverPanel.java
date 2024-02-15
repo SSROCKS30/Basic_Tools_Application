@@ -8,18 +8,23 @@ public class QuadraticSolverPanel extends JPanel {
     private JTextField coefficientBField;
     private JTextField coefficientCField;
     private JTextArea resultTextArea;
-
+    String s = "Quadratic Equation: Ax^2 + Bx + C = 0";
+    JLabel equationLabel = new JLabel(s);
     public QuadraticSolverPanel(HomePage homePage) {
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
+        
+        // Equation Display
+        equationLabel.setForeground(Color.WHITE);
+        equationLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        equationLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         // Input Fields
         JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(6, 6,5,5));
+        inputPanel.setLayout(new GridLayout(6, 1, 5, 5));
         inputPanel.setBackground(Color.BLACK);
         inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        Font inputFont = new Font("Arial", Font.BOLD, 30); 
-        
+        Font inputFont = new Font("Arial", Font.BOLD, 30);
 
         JLabel labelA = new JLabel("Coefficient A:");
         labelA.setForeground(Color.WHITE);
@@ -60,13 +65,7 @@ public class QuadraticSolverPanel extends JPanel {
             }
         });
 
-        // Result TextArea
-        resultTextArea = new JTextArea(2, 20);
-        resultTextArea.setEditable(false);
-        resultTextArea.setBackground(Color.BLACK);
-        resultTextArea.setForeground(Color.WHITE);
-        resultTextArea.setFont(inputFont);
-
+        // Exit Button
         JButton exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Arial", Font.BOLD, 20));
         exitButton.setBackground(Color.RED);
@@ -78,17 +77,30 @@ public class QuadraticSolverPanel extends JPanel {
             }
         });
 
+        // Result TextArea
+        resultTextArea = new JTextArea(2, 20);
+        resultTextArea.setEditable(false);
+        resultTextArea.setBackground(Color.BLACK);
+        resultTextArea.setForeground(Color.WHITE);
+        resultTextArea.setFont(inputFont);
+
+        // Add components to the panel
+        add(equationLabel, BorderLayout.NORTH);
         add(inputPanel, BorderLayout.CENTER);
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(Color.BLACK);
         buttonPanel.add(calculateButton);
         buttonPanel.add(exitButton);
-
         add(buttonPanel, BorderLayout.SOUTH);
 
-        add(new JScrollPane(resultTextArea), BorderLayout.NORTH);
-
+        JPanel Result = new JPanel();
+        Result.setLayout(new GridLayout(2,1,3,3));
+        Result.setBackground(Color.BLACK);
+        Result.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        Result.add(equationLabel);
+        Result.add(resultTextArea);
+        add(new JScrollPane(Result), BorderLayout.NORTH);
     }
 
     private void calculateQuadraticEquation() {
@@ -97,8 +109,9 @@ public class QuadraticSolverPanel extends JPanel {
             double b = Double.parseDouble(coefficientBField.getText());
             double c = Double.parseDouble(coefficientCField.getText());
 
+            String quadraticEquation = String.format("Quadratic Equation: %dx^2 + %dx + %d = 0", (int)a, (int)b, (int)c);
+            equationLabel.setText(quadraticEquation);
             double discriminant = b * b - 4 * a * c;
-
             if (discriminant > 0) {
                 double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
                 double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
