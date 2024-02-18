@@ -26,10 +26,10 @@ public class BMICalculatorPanel extends JPanel {
         sliderPanel.setBackground(new Color(32, 32, 32));
 
         JLabel heightLabel = new JLabel("Height (in cm)");
-        heightLabel.setFont(new Font("Arial", Font.BOLD, 20)); // Set font to match the home screen theme
-        heightLabel.setForeground(Color.WHITE); // Set font color to match the home screen theme
+        heightLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        heightLabel.setForeground(Color.WHITE);
         JLabel heightValueLabel = new JLabel(String.valueOf((int) height));
-        heightValueLabel.setForeground(Color.WHITE); // Set font color to match the home screen theme
+        heightValueLabel.setForeground(Color.WHITE);
         JSlider heightSlider = new JSlider(100, 220, (int) height);
         heightSlider.addChangeListener(e -> {
             height = heightSlider.getValue();
@@ -37,10 +37,10 @@ public class BMICalculatorPanel extends JPanel {
         });
 
         JLabel weightLabel = new JLabel("Weight (kg)");
-        weightLabel.setFont(new Font("Arial", Font.BOLD, 20)); // Set font to match the home screen theme
-        weightLabel.setForeground(Color.WHITE); // Set font color to match the home screen theme
+        weightLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        weightLabel.setForeground(Color.WHITE);
         JLabel weightValueLabel = new JLabel(String.valueOf((int) weight));
-        weightValueLabel.setForeground(Color.WHITE); // Set font color to match the home screen theme
+        weightValueLabel.setForeground(Color.WHITE);
         JSlider weightSlider = new JSlider(30, 150, (int) weight);
         weightSlider.addChangeListener(e -> {
             weight = weightSlider.getValue();

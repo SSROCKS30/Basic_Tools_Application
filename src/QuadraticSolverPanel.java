@@ -17,18 +17,18 @@ public class QuadraticSolverPanel extends JPanel {
         // Equation Display
         equationLabel.setForeground(Color.WHITE);
         equationLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        equationLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        equationLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
         // Input Fields
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(6, 1, 5, 5));
         inputPanel.setBackground(Color.BLACK);
-        inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        Font inputFont = new Font("Arial", Font.BOLD, 30);
+        inputPanel.setBorder(BorderFactory.createEmptyBorder(5, 5 , 5, 5));
+        Font inputFont = new Font("Arial", Font.BOLD, 15);
 
         JLabel labelA = new JLabel("Coefficient A:");
         labelA.setForeground(Color.WHITE);
-        labelA.setFont(new Font("Arial", Font.BOLD, 40));
+        labelA.setFont(new Font("Arial", Font.BOLD, 20));
         coefficientAField = new JTextField();
         coefficientAField.setFont(inputFont);
         coefficientAField.setBackground(Color.gray);
@@ -37,7 +37,7 @@ public class QuadraticSolverPanel extends JPanel {
 
         JLabel labelB = new JLabel("Coefficient B:");
         labelB.setForeground(Color.WHITE);
-        labelB.setFont(new Font("Arial", Font.BOLD, 40));
+        labelB.setFont(new Font("Arial", Font.BOLD, 20));
         coefficientBField = new JTextField();
         coefficientBField.setFont(inputFont);
         coefficientBField.setBackground(Color.gray);
@@ -46,7 +46,7 @@ public class QuadraticSolverPanel extends JPanel {
 
         JLabel labelC = new JLabel("Coefficient C:");
         labelC.setForeground(Color.WHITE);
-        labelC.setFont(new Font("Arial", Font.BOLD, 40));
+        labelC.setFont(new Font("Arial", Font.BOLD, 20));
         coefficientCField = new JTextField();
         coefficientCField.setFont(inputFont);
         coefficientCField.setBackground(Color.gray);
@@ -55,7 +55,7 @@ public class QuadraticSolverPanel extends JPanel {
 
         // Button to Calculate
         JButton calculateButton = new JButton("Calculate");
-        calculateButton.setFont(new Font("Arial", Font.BOLD, 20));
+        calculateButton.setFont(new Font("Arial", Font.BOLD, 15));
         calculateButton.setBackground(Color.GREEN);
         calculateButton.setForeground(Color.WHITE);
         calculateButton.addActionListener(new ActionListener() {
@@ -67,7 +67,7 @@ public class QuadraticSolverPanel extends JPanel {
 
         // Exit Button
         JButton exitButton = new JButton("Exit");
-        exitButton.setFont(new Font("Arial", Font.BOLD, 20));
+        exitButton.setFont(new Font("Arial", Font.BOLD, 15));
         exitButton.setBackground(Color.RED);
         exitButton.setForeground(Color.WHITE);
         exitButton.addActionListener(new ActionListener() {
@@ -97,7 +97,7 @@ public class QuadraticSolverPanel extends JPanel {
         JPanel Result = new JPanel();
         Result.setLayout(new GridLayout(2,1,3,3));
         Result.setBackground(Color.BLACK);
-        Result.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        Result.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         Result.add(equationLabel);
         Result.add(resultTextArea);
         add(new JScrollPane(Result), BorderLayout.NORTH);

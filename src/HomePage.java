@@ -12,7 +12,7 @@ public class HomePage extends JFrame {
     private JPanel homePanel;
     public HomePage() {
         setTitle("basic_tools_applications");
-        setSize(1000, 800);
+        setSize(500, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         try {
@@ -50,19 +50,18 @@ public class HomePage extends JFrame {
         JLabel welcomeLabel = new JLabel("WELCOME TO YOUR BASIC_TOOLS_APP");
         welcomeLabel.setForeground(Color.WHITE);
         welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 40));
+        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         JLabel subheadingLabel = new JLabel("OUR SWEET LITTLE JAVA PROJECT....");
         subheadingLabel.setForeground(Color.WHITE);
         subheadingLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        subheadingLabel.setFont(new Font("Arial", Font.PLAIN, 24));
+        subheadingLabel.setFont(new Font("Arial", Font.PLAIN, 14));
 
         homePanel.add(welcomeLabel);
         homePanel.add(subheadingLabel);
         homePanel.add(calculatorButton);
         homePanel.add(bmiCalculatorButton);
         homePanel.add(quadraticSolverButton);
-
         add(homePanel, BorderLayout.CENTER);
 
         calculatorButton.addActionListener(new ActionListener() {
